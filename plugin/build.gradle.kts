@@ -5,8 +5,8 @@ plugins {
     id("com.gradle.plugin-publish") version "1.2.1"
 }
 
-group = "tech.kocel"
-version = "0.1.3"
+group = "ru.jflab.gradle"
+version = "0.1.0"
 
 java {
     toolchain {
@@ -23,6 +23,8 @@ dependencies {
     implementation("commons-codec:commons-codec:1.17.0")
     implementation("com.michael-bull.kotlin-retry:kotlin-retry:2.0.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
+    implementation("net.sourceforge.plantuml:plantuml:1.2024.7")
+
 
     val kotestVersion = "5.9.0"
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
@@ -33,11 +35,11 @@ dependencies {
 gradlePlugin {
     plugins {
         create("plantuml") {
-            id = "tech.kocel.yapgp"
+            id = "ru.jflab.gradle.yapgp"
             displayName = "Yet Another PlantUML Gradle Plugin - YAPGP"
             tags = listOf("plantuml", "puml", "svg")
-            website = "https://github.com/kkocel/yapgp"
-            vcsUrl = "https://github.com/kkocel/yapgp.git"
+            website = "https://github.com/jflab-sources/yapgp"
+            vcsUrl = "https://github.com/jflab-sources/yapgp.git"
             description = "Converts PlantUML .puml files to one of the supported output formats - svg, png, txt. " +
                 "It sends the .puml file to the PlantUML server and saves the result."
             implementationClass = "tech.kocel.yapgp.PlantumlGradlePlugin"

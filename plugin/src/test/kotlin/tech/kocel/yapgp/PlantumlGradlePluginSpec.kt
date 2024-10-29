@@ -11,7 +11,7 @@ class PlantumlGradlePluginSpec : StringSpec({
     "plugin registers task" {
         // Create a test project and apply the plugin
         val project = ProjectBuilder.builder().build()
-        project.plugins.apply("tech.kocel.yapgp")
+        project.plugins.apply("ru.jflab.gradle.yapgp")
 
         // Verify the result
         project.tasks.findByName("plantumlAll").shouldNotBeNull()

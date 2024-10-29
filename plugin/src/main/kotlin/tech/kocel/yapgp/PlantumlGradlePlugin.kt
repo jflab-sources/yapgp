@@ -140,7 +140,7 @@ open class GenerateDiagramTask
         val options: Options,
     ) : DefaultTask() {
         @OutputFile
-        fun getOutputFile() = File(options.outputDir, "${diagram.name}${options.fileFormat().fileSuffix()}")
+        fun getOutputFile() = File(options.outputDir, "${diagram.name}")
 
         @TaskAction
         fun generate() {
@@ -150,7 +150,7 @@ open class GenerateDiagramTask
             }
 
             DiagramDownloader().downloadFile(
-                PlantUmlEncoder().encode(diagram.sourceFile.readText()),
+                diagram.sourceFile,
                 options.fileFormat(),
                 getOutputFile(),
             )
@@ -192,16 +192,13 @@ abstract class GenerateDiagramsTask : DefaultTask() {
 
             val fileName = fileDetails.name
             val simpleName = fileName.substring(0, fileName.lastIndexOf("."))
-            val outputFile = File(outputDirectory, "${simpleName}${options.fileFormat().fileSuffix()}")
+            val outputFile = File(outputDirectory, "${simpleName}")
 
-            fileDetails.open().bufferedReader().use { reader ->
-
-                DiagramDownloader().downloadFile(
-                    PlantUmlEncoder().encode(reader.readText()),
-                    options.fileFormat(),
-                    outputFile,
-                )
-            }
+            DiagramDownloader().downloadFile(
+                fileDetails.file,
+                options.fileFormat(),
+                outputFile,
+            )
         }
     }
 }

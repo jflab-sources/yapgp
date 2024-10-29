@@ -15,7 +15,7 @@ import javax.xml.validation.SchemaFactory
 import javax.xml.validation.Validator
 
 /**
- * A simple functional test for the 'tech.kocel.yapgp' plugin.
+ * A simple functional test for the 'ru.jflab.gradle.yapgp' plugin.
  */
 class PlantumlGradlePluginFunctionalSpec : StringSpec({
 
@@ -23,7 +23,7 @@ class PlantumlGradlePluginFunctionalSpec : StringSpec({
         val gradleDSL =
             """
             plugins {
-                id('tech.kocel.yapgp')
+                id('ru.jflab.gradle.yapgp')
             }
             
             plantuml {
@@ -46,7 +46,7 @@ class PlantumlGradlePluginFunctionalSpec : StringSpec({
         val kotlinDSL =
             """
             plugins {
-                id("tech.kocel.yapgp")
+                id("ru.jflab.gradle.yapgp")
             }
             
             plantuml {
@@ -73,7 +73,7 @@ class PlantumlGradlePluginFunctionalSpec : StringSpec({
             import tech.kocel.yapgp.GenerateDiagramsTask
              
             plugins {
-                id('tech.kocel.yapgp')
+                id('ru.jflab.gradle.yapgp')
             }
             
             plantuml {
@@ -94,7 +94,7 @@ class PlantumlGradlePluginFunctionalSpec : StringSpec({
             import tech.kocel.yapgp.GenerateDiagramsTask
             
             plugins {
-                id("tech.kocel.yapgp")
+                id("ru.jflab.gradle.yapgp")
             }
             
             plantuml {
